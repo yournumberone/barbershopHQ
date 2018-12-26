@@ -1,0 +1,36 @@
+
+
+<form action="/visit" method="POST">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Ваше имя</label>
+    <input type="text" class="form-control" name="client[name]" placeholder="Здесь могло быть ваше имя" value="">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput2">Укажите дату и время</label>
+    <input id="datetimepicker" type="text" class="form-control" name="client[datetime]" placeholder="" value="">
+  </div>
+  <div class="form-group">
+    <div class="form-group">
+      <label for="exampleFormControlInput3">Оставьте Свой номер телефона</label>
+      <input type="text" class="form-control" name="client[phone]" placeholder="Ваш номер" value="">
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Комментарий</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Ваши пожелания" rows="3"></textarea>
+  </div>
+ 
+</div>
+
+
+<script type="text/javascript">
+$(function(){
+  $('#datetimepicker').datetimepicker();
+})
+
+</script>
+
+  <button type="submit" class="btn btn-success">Пушка</button>
+</form>

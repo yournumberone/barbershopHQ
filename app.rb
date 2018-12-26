@@ -15,3 +15,13 @@ end
 get '/' do
 	erb "Hello! "
 end
+
+get '/visit' do
+	erb :visit
+end
+
+post '/visit' do
+	c = Client.new params[:client]
+	c.save
+	erb "Thank you!"
+end
