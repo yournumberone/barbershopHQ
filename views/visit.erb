@@ -3,16 +3,16 @@
 <form action="/visit" method="POST">
   <div class="form-group">
     <label for="exampleFormControlInput1">Ваше имя</label>
-    <input type="text" class="form-control" name="client[name]" placeholder="Здесь могло быть ваше имя" value="">
+    <input type="text" class="form-control" name="client[name]" placeholder="Здесь могло быть ваше имя" value="<%= @c.name %>">
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput2">Укажите дату и время</label>
-    <input id="datetimepicker" type="text" class="form-control" name="client[datetime]" placeholder="" value="">
+    <input id="datetimepicker" type="text" class="form-control" name="client[datetime]" placeholder="" value="<%= @c.datetime %>">
   </div>
   <div class="form-group">
     <div class="form-group">
       <label for="exampleFormControlInput3">Оставьте Свой номер телефона</label>
-      <input type="text" class="form-control" name="client[phone]" placeholder="Ваш номер" value="">
+      <input type="text" class="form-control" name="client[phone]" placeholder="Ваш номер" value="<%= @c.phone %>">
     </div>
 
   </div>
