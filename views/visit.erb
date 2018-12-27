@@ -2,26 +2,33 @@
 
 <form action="/visit" method="POST">
   <div class="form-group">
-    <label for="exampleFormControlInput1">Ваше имя</label>
+    <label for="client[name]">Ваше имя</label>
     <input type="text" class="form-control" name="client[name]" placeholder="Здесь могло быть ваше имя" value="<%= @c.name %>">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput2">Укажите дату и время</label>
+    <label for="client[datetime]">Укажите дату и время</label>
     <input id="datetimepicker" type="text" class="form-control" name="client[datetime]" placeholder="" value="<%= @c.datetime %>">
   </div>
   <div class="form-group">
     <div class="form-group">
-      <label for="exampleFormControlInput3">Оставьте Свой номер телефона</label>
+      <label for="client[phone]">Оставьте Свой номер телефона</label>
       <input type="text" class="form-control" name="client[phone]" placeholder="Ваш номер" value="<%= @c.phone %>">
     </div>
-
   </div>
+
+    <label for="exampleFormControlSelect1">Выберите мастера</label>
+    <select class="form-control" name="client[master]">
+    <% @barbers.each do |barber|%>
+      <option><%=barber.name%></option>
+    <% end%>
+    </select>
+<hr/>
 
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Комментарий</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Ваши пожелания" rows="3"></textarea>
   </div>
- 
+
 </div>
 
 

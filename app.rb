@@ -10,6 +10,7 @@ class Client < ActiveRecord::Base
 	validates :name, presence: true, length: {minimum:3}
 	validates :phone, presence: true
 	validates :datetime, presence: true
+	validates :master, presence: true
 end
 
 class Idiot < ActiveRecord::Base
