@@ -1,0 +1,7 @@
+<h2 style="color: #999;">Barbers place</h2>
+<hr/>
+<% @barbers.each do |i|%>
+<p>
+<a href="/barber/<%=i.id%>"><%=i.name %></a>
+</p><hr/>
+<% end %>

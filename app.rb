@@ -7,16 +7,30 @@ require 'sinatra/activerecord'
 set :database, "sqlite3:shopbase.db"
 
 class Client < ActiveRecord::Base
-	validates :name, presence: true
+	validates :name, presence: true, length: {minimum:3}
 	validates :phone, presence: true
 	validates :datetime, presence: true
 end
 
 class Idiot < ActiveRecord::Base
 end
+class Barber < ActiveRecord::Base
+end
+
+before do
+	@barbers = Barber.all
+end
 
 get '/' do
 	erb "Hello! "
+end
+
+get '/barber/:id' do
+	erb :barber
+end
+
+get '/barbers' do
+	erb :barbers
 end
 
 get '/visit' do
