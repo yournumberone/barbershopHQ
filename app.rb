@@ -25,7 +25,9 @@ end
 get '/' do
 	erb "Hello! "
 end
-
+get '/contacts' do
+	erb "Phone for call: 254659234546"
+end
 get '/barber/:id' do
 	@barber = Barber.find(params[:id])
 	erb :barber
