@@ -1,53 +1,53 @@
-
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
 
-set :database, "sqlite3:shopbase.db"
+set :database, 'sqlite3:shopbase.db'
 
 class Client < ActiveRecord::Base
-	validates :name, presence: true, length: {minimum:3}
-	validates :phone, presence: true
-	validates :datetime, presence: true
-	validates :master, presence: true
+  validates :name, presence: true, length: { minimum: 3 }
+  validates :phone, presence: true
+  validates :datetime, presence: true
+  validates :master, presence: true
 end
 
 class Idiot < ActiveRecord::Base
 end
+
 class Barber < ActiveRecord::Base
 end
 
 before do
-	@barbers = Barber.all
+  @barbers = Barber.all
 end
 
 get '/' do
-	erb "Hello! "
+  erb 'Hello! '
 end
 get '/contacts' do
-	erb "Phone for call: 254659234546"
+  erb 'Phone for call: 254659234546'
 end
 get '/barber/:id' do
-	@barber = Barber.find(params[:id])
-	erb :barber
+  @barber = Barber.find(params[:id])
+  erb :barber
 end
 
 get '/barbers' do
-	erb :barbers
+  erb :barbers
 end
 
 get '/visit' do
-	@c = Client.new
-	erb :visit
+  @c = Client.new
+  erb :visit
 end
 
 post '/visit' do
-	@c = Client.new params[:client]
-	if @c.save
-		erb "Thank you!"
-	else
-		@error = @c.errors.full_messages.first
-		erb :visit
-	end
+  @c = Client.new params[:client]
+  if @c.save
+    erb 'Thank you!'
+  else
+    @error = @c.errors.full_messages.first
+    erb :visit
+  end
 end
